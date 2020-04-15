@@ -1,7 +1,7 @@
 from selenium import webdriver
 
 
-def translate(choose):
+def translate(choose):    #把ABCD转化成为0123
     if choose == 'A' or choose == 'a':
         return 0
     elif choose == 'B' or choose == 'b':
@@ -26,11 +26,11 @@ def submit_choice(question_number, choose):    #选择题
     answer[translate(choose)].click()
 
 
-def submit_multi_choice(question_number, choose):    #多选题
+def submit_multi_choice(question_number, choose_list):    #多选题
     pass
     answer = questions[question_number].find_elements_by_css_selector('li')
-    for i in range(len(choose)):
-        answer[translate(choose[i])].click()
+    for i in range(len(choose_list)):
+        answer[translate(choose_list[i])].click()
 
 
 def submit_text(question_number, text):    #填空题
@@ -51,6 +51,8 @@ def next_page():    #翻页
     next_button.click()
     questions = driver.find_elements_by_css_selector('.div_question')
 
+def submit():    #交卷
+    driver.find_element_by_css_selector('#submit_button').click()
 
 def main():
     submit_text(0, '李狗蛋')
@@ -63,18 +65,15 @@ def main():
     next_page()
     submit_choice(7, 'A')
 
-    # 提交
-    submit_button = driver.find_element_by_css_selector('#submit_button')
-    submit_button.click()
+    submit()
 
     input() #等待用户操作后再关闭浏览器
     driver.close()
 
 
-driver = webdriver.Chrome()
-driver.get('https://ks.wjx.top/jq/71431917.aspx')
-questions = driver.find_elements_by_css_selector('.div_question')
-
 
 if __name__ == "__main__":
+    driver = webdriver.Chrome()
+    driver.get('https://ks.wjx.top/jq/71431917.aspx')
+    questions = driver.find_elements_by_css_selector('.div_question')
     main()
