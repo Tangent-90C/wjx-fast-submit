@@ -30,4 +30,4 @@
 --------------------------
 以下是需要为项目安装的库(模块)。点击文本将会出现相应的官方文档。请确保安装了相应的最新版本。另外不要忘记安装WebDriver，这里我使用的是Chrome浏览器，所以你应该安装的是ChromeDriver。
 
-[selenium](https://www.selenium.dev/documentation/zh-cn/)
+* [selenium](https://www.selenium.dev/documentation/zh-cn/)
