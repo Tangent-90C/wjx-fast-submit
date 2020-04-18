@@ -19,6 +19,8 @@
     >submit_multi_choice(question_number, choose_list)
 * 填空题
     >submit_text(question_number, text)
+* 带下划线的填空题
+    >submit_underline_text(question_number, text)
 * 多空填空题
     >submit_multi_text(question_number, answers_list)
 * 翻页
