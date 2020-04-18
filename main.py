@@ -38,6 +38,10 @@ def submit_text(question_number, text):    #填空题
         'textarea')
     text_area.send_keys(text)
 
+def submit_underline_text(question_number, text):    #下划线的填空题
+    text_area = questions[question_number].find_element_by_class_name(
+        'underline')
+    text_area.send_keys(text)
 
 def submit_multi_text(question_number, answers_list):    #多空填空题
     text_area = questions[question_number].find_elements_by_class_name(
